@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ANJH711的留言板</title>
+        <style>
+            #title{
+    width: 50%;
+}
+#text{
+    width: 50%;
+    height: 5cm;
+}
+#button{
+    width: 20%;
+    background-color: lightblue;
+    border: 1px solid black;
+}
+
+        </style>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <h1>ANJH711的留言板</h1>
+        <p>標題</p>
+        <input type="text" placeholder="輸入標題" id="title">
+        <p>內容</p>
+        <textarea placeholder="輸入內容" id="text"></textarea>
+        <br>
+        <br>
+        <button id="button">發布</button>
+        <br>
+        <br>
+        <hr>
+        <div id="div"></div>
+        <script>
+            var div  = document.getElementById("div");
+var button = document.getElementById("button");
+var title = document.getElementById("title");
+var text = document.getElementById("text");
+
+button.addEventListener("click",function(){
+    if(title.value!=="" && text.value !==""){
+        div.innerHTML = div.innerHTML + `
+    <div id="div">
+    <h2>${title.value}</h2>
+    <p>${text.value}</p>
+    <hr>
+</div>
+    `;
+    title.value = "";
+    text.value = "" ;
+    }
+    else if(title.value=="" && text.value==""){
+        alert("請輸入標題和內文!");
+    }
+    
+    else if(title.value==""){
+        alert("請輸入標題!");
+    }
+    else if(text.value==""){
+        alert("請輸入內文!");
+    }
+    
+})
+        </script>
+    </body>
+</html>
